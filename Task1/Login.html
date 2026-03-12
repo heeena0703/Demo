@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Login Page</title>
+<link rel="stylesheet" href="regpage.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Login</h2>
+
+<form onsubmit="login(event)">
+
+<label>Email</label>
+<input type="text" id="email" placeholder="Email"><br><br>
+
+<label>Password</label>
+<input type="password" id="password"><br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+</div>
+
+<script>
+
+let data = JSON.parse(localStorage.getItem("userData"));
+
+if(data){
+document.getElementById("email").value = data.email;
+}
+
+function login(event){
+
+event.preventDefault();
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+let storedData = JSON.parse(localStorage.getItem("userData"));
+
+if(email == storedData.email && password == storedData.password)
+{
+alert("Login Successful");
+
+window.location.href = "userpage.html";
+}
+else
+{
+alert("Invalid Email or Password");
+}
+
+}
+
+</script>
+
+</body>
+</html>
