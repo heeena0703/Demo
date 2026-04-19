@@ -100,8 +100,9 @@ cursor:pointer;
 
 <script>
 
-let user = JSON.parse(localStorage.getItem("user"));
-
+let user = JSON.parse(localStorage.getItem("userData"));
+console.log(user);
+console.log(localStorage.getItem("userData"))
 if(user){
 document.getElementById("name").innerText = user.name;
 document.getElementById("age").innerText = user.age;
