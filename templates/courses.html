@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses - Virtual Classroom{% endblock %}
+
+{% block header %}Explore Courses 🚀{% endblock %}
+
+{% block toolbar %}
+<div class="input-group">
+    <input class="form-control" type="text" placeholder="Search courses...">
+    <button class="btn btn-outline-secondary">Search</button>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="welcome-banner mb-4">
+    <h1>Learn New Skills</h1>
+    <p>Upgrade your career with premium courses.</p>
+</div>
+
+<div class="course-grid">
+    {% for course in courses %}
+    <div class="course-card">
+        {% if show_images %}
+        <img src="{{ course.image }}" alt="Course Image">
+        {% endif %}
+        <div class="course-content">
+            <span class="badge">{{ course.badge }}</span>
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description }}</p>
+            <div class="course-info mb-2">
+                <span><i class="fa-solid fa-clock"></i> 12 Hours</span>
+                <span class="ms-3"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <a href="/enroll/{{ course.link }}" class="enroll-btn">Start Learning</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
