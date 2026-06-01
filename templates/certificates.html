@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Certificates - Virtual Classroom{% endblock %}
+
+{% block header %}Certificates 🏆{% endblock %}
+
+{% block content %}
+<div class="welcome-banner mb-4">
+    <h1>Certificates 🏆</h1>
+    <p>View and download your achievements.</p>
+</div>
+
+<div class="certificate-grid">
+    {% for certificate in certificates %}
+    <div class="certificate-card">
+        <h3>{{ certificate.title }}</h3>
+        <p>Completed: {{ certificate.date }}</p>
+        <button class="download-btn">Download Certificate</button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
